@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+
+  <style>
+
+    body{
+      background:#0f172a;
+      color:white;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      font-family:Arial;
+    }
+
+    button{
+      margin-top:20px;
+      padding:12px 20px;
+      border:none;
+      border-radius:8px;
+      background:red;
+      color:white;
+      cursor:pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Usuário Logado 🎉</h1>
+
+  <button onclick="sair()">Sair</button>
+
+  <script>
+
+    // proteger página
+    if(localStorage.getItem("logado") !== "true"){
+      window.location.href = "login.html";
+    }
+
+    function sair(){
+
+      localStorage.removeItem("logado");
+
+      window.location.href = "login.html";
+
+    }
+
+  </script>
+
+</body>
+</html>
