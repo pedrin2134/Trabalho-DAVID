@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial;
+    }
+
+    body{
+      background:#0f172a;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .box{
+      width:350px;
+      background:white;
+      padding:30px;
+      border-radius:15px;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:20px;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    p{
+      text-align:center;
+      margin-top:15px;
+    }
+
+    a{
+      color:#2563eb;
+      text-decoration:none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="box">
+
+    <h1>Login</h1>
+
+    <input type="email" id="email" placeholder="Seu email">
+
+    <input type="password" id="senha" placeholder="Sua senha">
+
+    <button onclick="login()">Entrar</button>
+
+    <p>
+      Não possui conta?
+      <a href="cadastro.html">Cadastre-se</a>
+    </p>
+
+  </div>
+
+  <script>
+
+    // se já estiver logado
+    if(localStorage.getItem("logado") === "true"){
+      window.location.href = "home.html";
+    }
+
+    function login(){
+
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+
+      const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+      if(!usuario){
+        alert("Nenhum usuário cadastrado!");
+        return;
+      }
+
+      if(email === usuario.email && senha === usuario.senha){
+
+        localStorage.setItem("logado", "true");
+
+        alert("Login realizado!");
+
+        window.location.href = "home.html";
+
+      }else{
+        alert("Email ou senha incorretos!");
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
