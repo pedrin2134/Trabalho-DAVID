@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle de Presença</title>
+    <style>
+        /* Fonte e fundo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Caixa do formulário */
+        form {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            width: 350px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 25px;
+        }
+
+        /* Labels */
+        label {
+            font-weight: bold;
+            color: #555555;
+        }
+
+        /* Inputs, textarea e select */
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* Botão de submit */
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <form>
+
+        <h1>Controle de Presença</h1>
+
+        <label>Nome do Aluno:</label>
+        <input type="text" name="aluno">
+
+        <label>Data:</label>
+        <input type="date" name="data">
+
+        <label>Status:</label>
+        <select name="status">
+            <option>Presente</option>
+            <option>Faltou</option>
+            <option>Atrasado</option>
+        </select>
+
+        <label>Observações:</label>
+        <textarea name="observacoes" rows="4"></textarea>
+
+        <input type="submit" value="Registrar Presença">
+
+    </form>
+
+</body>
+</html>
