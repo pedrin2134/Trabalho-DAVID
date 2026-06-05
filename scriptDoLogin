@@ -1,0 +1,36 @@
+</div>
+
+  <script>
+
+    // se já estiver logado
+    if(localStorage.getItem("logado") === "true"){
+      window.location.href = "home.html";
+    }
+
+    function login(){
+
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+
+      const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+      if(!usuario){
+        alert("Nenhum usuário cadastrado!");
+        return;
+      }
+
+      if(email === usuario.email && senha === usuario.senha){
+
+        localStorage.setItem("logado", "true");
+
+        alert("Login realizado!");
+
+        window.location.href = "home.html";
+
+      }else{
+        alert("Email ou senha incorretos!");
+      }
+
+    }
+
+  </script>

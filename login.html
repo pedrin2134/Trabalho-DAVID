@@ -43,7 +43,7 @@
       outline:none;
     }
 
-    button{
+    .env{
       width:100%;
       padding:12px;
       border:none;
@@ -75,54 +75,22 @@
   <div class="box">
 
     <h1>Login</h1>
+    
 
     <input type="email" id="email" placeholder="Seu email">
 
     <input type="password" id="senha" placeholder="Sua senha">
-
-    <button onclick="login()">Entrar</button>
+    
+    <form action="home.html"> 
+    <input class="env" type="submit" value="Entrar">
+    </form>
 
     <p>
       Não possui conta?
       <a href="cadastro.html">Cadastre-se</a>
     </p>
 
-  </div>
-
-  <script>
-
-    // se já estiver logado
-    if(localStorage.getItem("logado") === "true"){
-      window.location.href = "home.html";
-    }
-
-    function login(){
-
-      const email = document.getElementById("email").value;
-      const senha = document.getElementById("senha").value;
-
-      const usuario = JSON.parse(localStorage.getItem("usuario"));
-
-      if(!usuario){
-        alert("Nenhum usuário cadastrado!");
-        return;
-      }
-
-      if(email === usuario.email && senha === usuario.senha){
-
-        localStorage.setItem("logado", "true");
-
-        alert("Login realizado!");
-
-        window.location.href = "home.html";
-
-      }else{
-        alert("Email ou senha incorretos!");
-      }
-
-    }
-
-  </script>
+  
 
 </body>
 </html>

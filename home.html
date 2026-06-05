@@ -1,56 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Home</title>
+    <meta charset="UTF-8">
+    <title>Controle de Presença</title>
+    <style>
+        /* Fonte e fundo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-  <style>
+        /* Caixa do formulário */
+        form {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            width: 350px;
+        }
 
-    body{
-      background:#0f172a;
-      color:white;
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
-      font-family:Arial;
-    }
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 25px;
+        }
 
-    button{
-      margin-top:20px;
-      padding:12px 20px;
-      border:none;
-      border-radius:8px;
-      background:red;
-      color:white;
-      cursor:pointer;
-    }
+        /* Labels */
+        label {
+            font-weight: bold;
+            color: #555555;
+        }
 
-  </style>
+        /* Inputs, textarea e select */
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* Botão de submit */
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
-  <h1>Usuário Logado 🎉</h1>
+    <form method="get" action="implementar sistema de presença.html">
 
-  <button onclick="sair()">Sair</button>
+        <h1>Controle de Presença</h1>
 
-  <script>
+        <label> Aula:</label>
+        <input type="text" name="aluno">
 
-    // proteger página
-    if(localStorage.getItem("logado") !== "true"){
-      window.location.href = "login.html";
-    }
+        <label>Data:</label>
+        <input type="date" name="data">
 
-    function sair(){
 
-      localStorage.removeItem("logado");
+        <label>Observações:</label>
+        <textarea name="observacoes" rows="4"></textarea>
 
-      window.location.href = "login.html";
+        <input type="submit" value="Registrar Chamada ">
 
-    }
-
-  </script>
+    </form>
 
 </body>
 </html>
