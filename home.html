@@ -1,96 +1,236 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Controle de Presença</title>
-    <style>
-        /* Fonte e fundo */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Controle de Presença</title>
 
-        /* Caixa do formulário */
-        form {
-            background-color: #ffffff;
-            padding: 30px 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            width: 350px;
-        }
+<style>
 
-        h1 {
-            text-align: center;
-            color: #333333;
-            margin-bottom: 25px;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
 
-        /* Labels */
-        label {
-            font-weight: bold;
-            color: #555555;
-        }
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    padding:20px;
+}
 
-        /* Inputs, textarea e select */
-        input[type="text"],
-        input[type="date"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 8px 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
+.container{
+    width:100%;
+    max-width:850px;
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
 
-        textarea {
-            resize: vertical;
-        }
+h1{
+    text-align:center;
+    color:#1e3c72;
+    margin-bottom:30px;
+    font-size:2rem;
+}
 
-        /* Botão de submit */
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-bottom:25px;
+}
 
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-    </style>
+.campo{
+    display:flex;
+    flex-direction:column;
+}
+
+.campo label{
+    font-weight:600;
+    margin-bottom:6px;
+    color:#444;
+}
+
+.campo input,
+.campo textarea{
+    padding:12px;
+    border:2px solid #dfe6ee;
+    border-radius:10px;
+    font-size:15px;
+    transition:.3s;
+}
+
+.campo input:focus,
+.campo textarea:focus{
+    border-color:#2a5298;
+    outline:none;
+}
+
+textarea{
+    resize:none;
+    min-height:100px;
+}
+
+.tabela{
+    width:100%;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+.tabela thead{
+    background:#2a5298;
+    color:white;
+}
+
+.tabela th{
+    padding:15px;
+    text-align:left;
+}
+
+.tabela td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+}
+
+.tabela tbody tr:hover{
+    background:#f5f9ff;
+}
+
+.presenca{
+    text-align:center;
+}
+
+input[type="checkbox"]{
+    width:20px;
+    height:20px;
+    cursor:pointer;
+}
+
+.observacoes{
+    margin-top:25px;
+}
+
+.botao{
+    margin-top:25px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.botao:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(42,82,152,.4);
+}
+
+.rodape{
+    text-align:center;
+    margin-top:20px;
+    color:#888;
+    font-size:14px;
+}
+
+@media(max-width:700px){
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .container{
+        padding:20px;
+    }
+
+}
+
+</style>
 </head>
 <body>
 
-    <form method="get" action="implementar sistema de presença.html">
+<div class="container">
 
-        <h1>Controle de Presença</h1>
+    <h1>📚 Controle de Presença</h1>
 
-        <label> Aula:</label>
-        <input type="text" name="aluno">
+    <form>
 
-        <label>Data:</label>
-        <input type="date" name="data">
+        <div class="form-grid">
 
+            <div class="campo">
+                <label>Disciplina</label>
+                <input type="text" placeholder="Ex: Matemática">
+            </div>
 
-        <label>Observações:</label>
-        <textarea name="observacoes" rows="4"></textarea>
+            <div class="campo">
+                <label>Data</label>
+                <input type="date">
+            </div>
 
-        <input type="submit" value="Registrar Chamada ">
+        </div>
+
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th class="presenca">Presente</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>João Silva</td>
+                    <td class="presenca"><input type="checkbox"></td>
+                </tr>
+
+                <tr>
+                    <td>Maria Souza</td>
+                    <td class="presenca"><input type="checkbox"></td>
+                </tr>
+
+                <tr>
+                    <td>Ana Oliveira</td>
+                    <td class="presenca"><input type="checkbox"></td>
+                </tr>
+
+                <tr>
+                    <td>Carlos Santos</td>
+                    <td class="presenca"><input type="checkbox"></td>
+                </tr>
+
+                <tr>
+                    <td>Fernanda Lima</td>
+                    <td class="presenca"><input type="checkbox"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="campo observacoes">
+            <label>Observações</label>
+            <textarea placeholder="Digite observações sobre a aula ou alunos..."></textarea>
+        </div>
+
+        <button class="botao" type="submit" a href="chamada.html">
+            Registrar Presença
+        </button>
 
     </form>
+
+    <div class="rodape">
+        Sistema de Controle de Presença Escolar
+    </div>
+
+</div>
 
 </body>
 </html>
