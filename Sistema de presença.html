@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Chamada Escolar</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    padding:30px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.topo{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.topo h1{
+    margin-bottom:5px;
+}
+
+.topo p{
+    opacity:.9;
+}
+
+.info-geral{
+    display:flex;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.caixa{
+    flex:1;
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+
+.lista{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.aluno{
+    background:white;
+    padding:18px;
+    border-radius:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.info{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.nome{
+    font-weight:600;
+    color:#1e293b;
+}
+
+.matricula{
+    color:#64748b;
+    font-size:14px;
+}
+
+.status{
+    display:flex;
+    gap:10px;
+}
+
+.status input{
+    display:none;
+}
+
+.status label{
+    padding:10px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.presente{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.falta{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.status input:checked + label{
+    border:3px solid #111827;
+}
+
+.botao{
+    text-align:center;
+    margin-top:25px;
+}
+
+.botao button{
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.botao button:hover{
+    background:#15803d;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <header class="topo">
+        <h1>🏫 Sistema de Chamada Escolar</h1>
+        <p>Turma H2 Noturno • <input type="date"></p>
+    </header>
+
+    <section class="info-geral">
+
+        <article class="caixa">
+            <h3>👥 Turma</h3>
+            <p>H2 Noturno</p>
+        </article>
+
+        <article class="caixa">
+            <h3>📚 Disciplina</h3>
+            <p>Desenvolvimento Web</p>
+        </article>
+
+        <article class="caixa">
+            <h3>👨‍🏫 Professor</h3>
+            <p>David</p>
+        </article>
+
+    </section>
+
+    <form action="chamada.html">
+
+        <!-- Representa um aluno da chamada -->
+<article class="aluno">
+
+    <!-- divide as informações do aluno e os controles de presença. -->
+    <section>
+        <h3 class="nome">Gabriel Martins</h3>
+        <p class="matricula">20260005</p>
+    </section>
+
+    <section class="status">
+        <input type="radio" name="gabriel" id="gabriel-presente">
+        <label class="presente" for="gabriel-presente">✓ Presente</label>
+
+        <input type="radio" name="gabriel" id="gabriel-falta">
+        <label class="falta" for="gabriel-falta"> ✕ Falta</label>
+    </section>
+
+</article>
+
+
+
+           <article class="aluno">
+
+    <section>
+        <h3 class="nome">João</h3>
+        <p class="matricula">1231231213</p>
+    </section>
+
+    <section class="status">
+        <input type="radio" name="João" id="João-presente">
+        <label class="presente" for="João-presente">✓ Presente</label>
+
+        <input type="radio" name="João" id="João-falta">
+        <label class="falta" for="João-falta">✕ Falta</label>
+    </section>
+
+</article>
+
+           <article class="aluno">
+
+    <section>
+        <h3 class="nome">Pedro</h3>
+        <p class="matricula">1231231213</p>
+    </section>
+
+    <section class="status">
+        <input type="radio" name="Pedro" id="Pedro-presente">
+        <label class="presente" for="Pedro-presente">✓ Presente</label>
+
+        <input type="radio" name="Pedro" id="Pedro-falta">
+        <label class="falta" for="Pedro-falta">✕ Falta</label>
+    </section>
+
+</article>
+
+
+            
+        <footer class="botao">
+            <button type="submit">
+                📋 Registrar Chamada
+            </button>
+        </footer>
+
+    </form>
+
+</main>
+
+
+</body>
+</html>
